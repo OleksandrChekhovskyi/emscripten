@@ -1800,6 +1800,11 @@ var LibraryJSEvents = {
     return success ? {{{ cDefine('EMSCRIPTEN_RESULT_SUCCESS') }}} : {{{ cDefine('EMSCRIPTEN_RESULT_INVALID_PARAM') }}};
   },
 
+  emscripten_webgl_commit_context: function(contextHandle) {
+    var success = GL.commitContext(contextHandle);
+    return success ? {{{ cDefine('EMSCRIPTEN_RESULT_SUCCESS') }}} : {{{ cDefine('EMSCRIPTEN_RESULT_INVALID_PARAM') }}};
+  },
+
   emscripten_webgl_get_current_context: function() {
     return GL.currentContext ? GL.currentContext.handle : 0;
   },
